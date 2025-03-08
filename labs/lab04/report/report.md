@@ -70,27 +70,111 @@ header-includes:
 
 # Цель работы
 
-
-
-# Задание
-
-
-
-# Теоретическое введение
-
-
+Провести подготовительную работу по первоначальной настройке коммутаторов сети.
 
 # Выполнение лабораторной работы
 
-Описываются проведённые действия, в качестве иллюстрации даётся ссылка на иллюстрацию (рис. [-@fig:1]).
+1. Повторяю топологию сети из материала лабораторной работы в приложении "Cisco Packet tracer" (рис. [-@fig:001]).
 
-![Название рисунка](image/placeimg_800_600_tech.jpg){#fig:1 width=70%}
+![Построение топологии сети](image/1.png){#fig:001 width=70%}
+
+2. Провожу настройку коммутатора msk-donskaya-aiamunichnikov-sw-1 (рис. [-@fig:002]):
+
+**Switch>enable:** Переход в режим привилегированного EXEC, который позволяет выполнять более сложные команды.
+
+**Switch#**configure terminal: Переход в режим глобальной конфигурации, где можно настраивать различные параметры устройства.
+
+**Switch (config)#**hostname msk-donskaya-sw-1
+
+**msk-donskaya-sw-1 (config)#**interface vlan2
+
+**msk-donskaya-sw-1 (config-if)#**no shutdown
+
+**msk-donskaya-sw-1(config-if)#**ip address 10.128.1.2 255.255.255.0
+
+**msk-donskaya-sw-1 (config-if)#**exit
+
+**msk-donskaya-sw-1 (config)#**ip default-gateway 10.128.1.1
+
+**msk-donskaya-sw-1 (config)#**line vty 0 4
+
+**msk-donskaya-sw-1 (config-line)#**password cisco
+
+**msk-donskaya-sw-1 (config-line)#**login
+
+**msk-donskaya-sw-1 (config-line)#**exit
+
+**msk-donskaya-sw-1 (config)#**line console 0
+
+**msk-donskaya-sw-1 (config-line)#**password cisco
+
+**msk-donskaya-sw-1 (config-line)#**login
+
+**msk-donskaya-sw-1 (config-line)#**exit
+
+**msk-donskaya-sw-1 (config)#**enable secret cisco
+
+**msk-donskaya-sw-1 (config)#**service password-encryption
+
+**msk-donskaya-sw-1 (config)#**username admin privilege 1 secret cisco
+
+**msk-donskaya-sw-1 (config)#**ip domain-name donskaya.run.edu
+
+**msk-donskaya-sw-1 (config)#**crypto key generate rsa
+
+**msk-donskaya-sw-1 (config)#**line vty 0 4
+
+**msk-donskaya-sw-1(config-line)#**transport input ssh
+
+**msk-donskaya-sw-1 (config-line)#**exit
+
+**msk-donskaya-sw-1 (config)#**exit
+
+**msk-donskaya-sw-1#**write memory
+
+![Наcтройка msk-donskaya-aiamunichnikov-sw-1](image/2.png){#fig:002 width=70%}
+
+3. Провожу настройку коммутатора msk-donskaya-aiamunichnikov-sw-2 (рис. [-@fig:003]):
+
+![Наcтройка msk-donskaya-aiamunichnikov-sw-2](image/3.png){#fig:003 width=70%}
+
+4. Провожу настройку коммутатора msk-donskaya-aiamunichnikov-sw-3 (рис. [-@fig:004]):
+
+![Наcтройка msk-donskaya-aiamunichnikov-sw-3](image/4.png){#fig:004 width=70%}
+
+5. Провожу настройку коммутатора msk-donskaya-aiamunichnikov-sw-4 (рис. [-@fig:005]):
+
+![Наcтройка msk-donskaya-aiamunichnikov-sw-4](image/5.png){#fig:005 width=70%}
+
+5. Провожу настройку коммутатора msk-pavlovkaya-aiamunichnikov-sw-1 (рис. [-@fig:006]):
+
+![Наcтройка msk-pavlovkaya-aiamunichnikov-sw-1](image/6.png){#fig:006 width=70%}
 
 # Выводы
 
-Здесь кратко описываются итоги проделанной работы.
+Провел подготовительную работу по первоначальной настройке коммутаторов сети.
 
-# Список литературы{.unnumbered}
+# Ответы на вопросы
 
-::: {#refs}
-:::
+1. Для просмотра конфигурации:
+
+    * show running-config - показывает текущую конфигурацию.
+    
+    * show startup-config - показывает конфигурацию, загружаемую при старте.
+    
+2. Для просмотра стартового конфигурационного файла:
+
+    * show startup-config - показывает стартовую конфигурацию
+    
+3. Для экспорта конфигурационного файла:
+
+    * copy running-config tftp: - для копирование текущей конфигурации на TFTP-сервер.
+    
+    *copy startup-config tftp: - для копирование стартовой конфигурации на TFTP-сервер.
+    
+4. Для импорта конфигурационного файла:
+
+    * copy tftp: running-config - для загрузки конфигурации с TFTP-сервера в текущую.
+    
+    * copy tftp: startup-config - для загрузки конфигурации с TFTP-сервера в стартовую.
+

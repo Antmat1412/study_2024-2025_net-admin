@@ -134,15 +134,15 @@ header-includes:
 
 ## Самостоятельная работа
 
-![Пингование устройств с dep-donskaya-dmbelicheva-1](image/19.png){#fig:022 width=40%}
+![Пингование устройств с dep-donskaya-aiamunichnikov-1](image/19.png){#fig:022 width=40%}
 
 ## Самостоятельная работа
 
-![Проверка доступности устройств с dk-donskaya-dmbelicheva-1](image/20.png){#fig:023 width=50%}
+![Проверка доступности устройств с dk-donskaya-aiamunichnikov-1](image/20.png){#fig:023 width=50%}
 
 ## Самостоятельная работа
 
-![Проверка доступности устройств с dk-donskaya-dmbelicheva-1](image/21.png){#fig:024 width=40%}
+![Проверка доступности устройств с dk-donskaya-aiamunichnikov-1](image/21.png){#fig:024 width=40%}
 
 ## Самостоятельная работа
 
